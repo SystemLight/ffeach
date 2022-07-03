@@ -1,10 +1,18 @@
 # ffeach
 
+[![NPM version](https://img.shields.io/npm/v/ffeach.svg)](https://www.npmjs.com/package/ffeach)
+
 > 大文件切片实用工具
 
 ### 依赖项
 
 - spark-md5
+
+### 安装
+
+```
+npm i ffeach
+```
 
 ### 接口说明
 
@@ -29,3 +37,21 @@
   参数： callback(选填) 接收运算完的hash结果值函数
   参数： chunkSize(选填) 单个文件块大小，单位bytes
 
+### 使用举例
+
+```html
+<input type="file" id="file">
+<script src="https://unpkg.com/spark-md5@3.0.2/spark-md5.js"></script>
+<script src="main.bundle.js"></script>
+<script>
+  document.getElementById('file').addEventListener('change', function (e) {
+    ffeach.hashFile(this.files[0], (result) => {
+      console.log(result)
+    })
+
+    ffeach.ffeach(this.files[0], 1024).forEach((chunkIndex, blob) => {
+      console.log(blob)
+    })
+  })
+</script>
+```

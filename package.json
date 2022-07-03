@@ -21,8 +21,11 @@
     "split file"
   ],
   "description": "Large file cutting and slicing tools.",
-  "main": "index.js",
-  "files": [],
+  "main": "dist/main.bundle.js",
+  "types": "dist/main.d.ts",
+  "files": [
+    "dist/"
+  ],
   "bin": {},
   "author": "SystemLighht",
   "license": "MIT",
