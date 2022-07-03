@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<input type="file" id="file">
+<script src="https://unpkg.com/spark-md5@3.0.2/spark-md5.js"></script>
+<script src="main.bundle.js"></script>
+<script>
+  document.getElementById('file').addEventListener('change', function (e) {
+    ffeach.hashFile(this.files[0], (result) => {
+      console.log(result)
+    })
+
+    ffeach.ffeach(this.files[0], 1024).forEach((chunkIndex, blob) => {
+      console.log(blob)
+    })
+  })
+</script>
+</body>
+</html>
